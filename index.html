@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      source = new EventSource('/');
+      var onerrorCalled = false;
+      source.onerror = function() {
+        onerrorCalled = true;
+      }
+
+      var checkSourceInterval;
+
+      function checkSource() {
+        if (source.readyState != source.CLOSED) {
+          return;
+        }
+
+        if (onerrorCalled) {
+          alert("Success! onerror callback was called properly");
+        } else {
+          alert("Oops! onerror callback was not called");
+        }
+        clearInterval(checkSourceInterval);
+      }
+      checkSourceInterval = setInterval(checkSource, 1000)
+
+      var bootstrapInterval = setInterval(function() {
+        if (source.readyState != source.OPEN) {
+          return;
+        }
+
+        alert("EventSource was setup properly. Please put your computer to sleep");
+        clearInterval(bootstrapInterval);
+      }, 500);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

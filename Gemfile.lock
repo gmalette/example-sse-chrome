@@ -1,0 +1,34 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    daemons (1.2.2)
+    em-hiredis (0.3.0)
+      eventmachine (~> 1.0)
+      hiredis (~> 0.5.0)
+    eventmachine (1.0.7)
+    hiredis (0.5.2)
+    pubsubstub (0.0.14)
+      em-hiredis (~> 0.2)
+      eventmachine (~> 1.0)
+      redis (~> 3.0)
+      sinatra (~> 1.4)
+    rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
+    redis (3.2.1)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
+    tilt (2.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pubsubstub
+  thin
